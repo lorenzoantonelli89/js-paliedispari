@@ -17,13 +17,12 @@ function palindrome(j) {
 }
 
 
-
 var checkBtn = document.getElementById('check');
 
 checkBtn.addEventListener('click', function(){
   var wordEnter = document.getElementById('word').value;
 
-  if (palindrome(wordEnter)) {
+  if (palindrome(wordEnter.toLowerCase())) {
       document.getElementById('result').innerHTML = 'La parola è palindroma';
   } else {
       document.getElementById('result').innerHTML = 'La parola non è palindroma';
@@ -34,55 +33,41 @@ checkBtn.addEventListener('click', function(){
 
 // esercizio 2
 var win = document.getElementById('win');
-// var numUtente = document.getElementById('num').value;
-// var choice = document.getElementById('pair').value;
-//
-//
-// var numPc = Math.floor(Math.random() * 100 ) + 1;
-// var sum = numUtente + numPc;
-// console.log(numPc);
-// console.log(sum);
 
 function play(){
 
-  var numUtente = document.getElementById('num').value;
+  var numUtente = parseInt(document.getElementById('num').value);
   var choice = document.getElementById('pair').value;
 
-
-  var numPc = Math.floor(Math.random() * 100 ) + 1;
+  var numPc = Math.floor(Math.random() * 5 ) + 1;
   var sum = numUtente + numPc;
-  console.log(numPc);
-  console.log(sum);
+
 
   if (sum % 2 == 0 && choice == 'pari') {
-    document.getElementById('win').innerHTML = 'La somma totale è ' + sum + ' Vince Lorenzo';
-    console.log('lorenzo win');
-    return 'vince utente';
+
+    return win.innerHTML = 'La somma totale è ' + sum + ' vince Lorenzo';
+
   }else if (sum % 2 == 0 && choice == 'dispari') {
-    win.innerHTML = 'La somma totale è ' + sum + ' Vince il PC';
-    console.log('pc win');
-    return 'vince pc'
+
+    return win.innerHTML = 'La somma totale è ' + sum + ' vince il PC';
+
   }else if (sum % 2 == 1 && choice == 'dispari') {
-    win.innerHTML = 'La somma totale è ' + sum + ' Vince Lorenzo';
-    console.log('lorenzo win');
-    return 'vince utente';
+
+    return win.innerHTML = 'La somma totale è ' + sum + ' vince Lorenzo';
+
   }else {
-    win.innerHTML = 'La somma totale è ' + sum + ' Vince il PC';
-    console.log('pc win');
-    return 'vince pc'
+
+    return win.innerHTML = 'La somma totale è ' + sum + ' vince il PC';
+    
   }
 
 }
 
-var message = play();
 
 var sumBtn = document.getElementById('sum');
 
 sumBtn.addEventListener('click', function(){
 
-
-win.innerHTML = message;
+win.innerHTML = play();
 
 });
-
-console.log(message);
