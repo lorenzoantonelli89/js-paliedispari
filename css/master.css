@@ -5,12 +5,38 @@
 
 .container{
   height: 100vh;
-  background-color: lightblue;
-  color: green;
+  background-color: #fdf5e4;
   display: flex;
   text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .row{
   margin: auto;
+}
+
+.palindr{
+  margin-bottom: 100px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+input[type=text]{
+  padding: 10px;
+}
+
+input[type=button]{
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: green;
+  color: #fff;
+}
+
+#result, #win{
+  margin-top: 20px;
 }

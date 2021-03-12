@@ -1,67 +1,88 @@
 
 // primo esercizio nomi palindromi
-// var wordEnter = document.getElementById('word').value;
-//
-// function palindrome(wordEnter) {
-//
-//     var j = wordEnter;
-//
-//     for (var i = 0; i < j.length / 2; i++) {
-//         if (j.charAt(i) !== j.charAt(j.length - 1 - i)) {
-//             return false;
-//         }
-//     }
-//     return true;
-// }
-//
-// // if (palindrome('marco')) {
-// //     // document.getElementById('result').innerHTML = 'La parola è palindroma';
-// //     console.log("The word is a palindrome");
-// // } else {
-// //     // document.getElementById('result').innerHTML = 'La parola non è palindroma';
-// //     console.log("The word is NOT a palindrome");
-// // }
-//
-//
-// var checkBtn = document.getElementById('check');
-//
-// checkBtn.addEventListener('click', function(){
-//
-//   if (palindrome(wordEnter)) {
-//       // document.getElementById('result').innerHTML = 'La parola è palindroma';
-//       console.log("The word is a palindrome");
-//   } else {
-//       // document.getElementById('result').innerHTML = 'La parola non è palindroma';
-//       console.log("The word is NOT a palindrome");
-//   }
-//
-// })
+
+function palindrome(j) {
+
+ var isPalindrome = false;
+
+    for (var i = 0; i < j.length / 2; i++) {
+        if (j.charAt(i) == j.charAt(j.length - 1 - i)) {
+            isPalindrome = true;
+        }else {
+          isPalindrome = false;
+          break;
+        }
+    }
+    return isPalindrome;
+}
+
+
+
+var checkBtn = document.getElementById('check');
+
+checkBtn.addEventListener('click', function(){
+  var wordEnter = document.getElementById('word').value;
+
+  if (palindrome(wordEnter)) {
+      document.getElementById('result').innerHTML = 'La parola è palindroma';
+  } else {
+      document.getElementById('result').innerHTML = 'La parola non è palindroma';
+  }
+
+});
 
 
 // esercizio 2
-
+var win = document.getElementById('win');
 // var numUtente = document.getElementById('num').value;
-var numUtente = parseInt(prompt('scrivi numero'));
 // var choice = document.getElementById('pair').value;
-var choice = prompt('scegli pari o dispari');
-
-
-var numPc = Math.floor(Math.random() * 100 ) + 1;
-var sum = numUtente + numPc;
-console.log(numPc);
-console.log(sum);
+//
+//
+// var numPc = Math.floor(Math.random() * 100 ) + 1;
+// var sum = numUtente + numPc;
+// console.log(numPc);
+// console.log(sum);
 
 function play(){
 
+  var numUtente = document.getElementById('num').value;
+  var choice = document.getElementById('pair').value;
+
+
+  var numPc = Math.floor(Math.random() * 100 ) + 1;
+  var sum = numUtente + numPc;
+  console.log(numPc);
+  console.log(sum);
+
   if (sum % 2 == 0 && choice == 'pari') {
+    document.getElementById('win').innerHTML = 'La somma totale è ' + sum + ' Vince Lorenzo';
+    console.log('lorenzo win');
     return 'vince utente';
-    // console.log('vince utente ');
+  }else if (sum % 2 == 0 && choice == 'dispari') {
+    win.innerHTML = 'La somma totale è ' + sum + ' Vince il PC';
+    console.log('pc win');
+    return 'vince pc'
+  }else if (sum % 2 == 1 && choice == 'dispari') {
+    win.innerHTML = 'La somma totale è ' + sum + ' Vince Lorenzo';
+    console.log('lorenzo win');
+    return 'vince utente';
   }else {
-    return 'vince computer';
-    // console.log('vince computer');
+    win.innerHTML = 'La somma totale è ' + sum + ' Vince il PC';
+    console.log('pc win');
+    return 'vince pc'
   }
 
 }
 
+var message = play();
 
-play();
+var sumBtn = document.getElementById('sum');
+
+sumBtn.addEventListener('click', function(){
+
+
+win.innerHTML = message;
+
+});
+
+console.log(message);
