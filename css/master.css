@@ -25,6 +25,10 @@
   margin-bottom: 20px;
 }
 
+.pairodd h3{
+  margin-bottom: 20px;
+}
+
 input[type=text], input[type=number]{
   padding: 10px;
 }
