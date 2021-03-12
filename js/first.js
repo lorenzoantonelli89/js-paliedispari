@@ -43,16 +43,25 @@
 // var numUtente = document.getElementById('num').value;
 var numUtente = parseInt(prompt('scrivi numero'));
 // var choice = document.getElementById('pair').value;
+var choice = prompt('scegli pari o dispari');
+
 
 var numPc = Math.floor(Math.random() * 100 ) + 1;
 var sum = numUtente + numPc;
 console.log(numPc);
 console.log(sum);
 
-// function play(){
-//
-//   if (true) {
-//
-//   }
-// }
-//
+function play(){
+
+  if (sum % 2 == 0 && choice == 'pari') {
+    return 'vince utente';
+    // console.log('vince utente ');
+  }else {
+    return 'vince computer';
+    // console.log('vince computer');
+  }
+
+}
+
+
+play();
